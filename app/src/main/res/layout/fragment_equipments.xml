@@ -1,0 +1,105 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Equipments">
+
+    <LinearLayout
+        android:id="@+id/lytSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/purple_500"
+        android:gravity="center_vertical"
+        android:visibility="visible" >
+
+        <EditText
+            android:id="@+id/edtKeyword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_form"
+            android:hint="Search"
+            android:padding="7dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lytSearch"
+        android:orientation="vertical"
+        android:padding="2dp">
+        <RelativeLayout
+            android:id="@+id/LinearLayout03"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <ImageButton
+                android:id="@+id/btnadd"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toLeftOf="@id/btndel"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/addproduct" />
+            <ImageButton
+                android:id="@+id/btndel"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/delete"
+                android:layout_marginEnd="20dp"
+                android:paddingBottom="5dp"/>
+            <CheckBox
+                android:id="@+id/Selectall"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
+                android:text="All"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+                    <ListView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/white"
+                    android:dividerHeight="0dp"
+                    android:listSelector="@color/white"
+                    android:padding="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:id="@+id/layoutspinner"
+        android:orientation="vertical" >
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+</RelativeLayout>

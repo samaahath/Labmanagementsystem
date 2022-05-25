@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginBottom="4dp"
+app:cardPreventCornerOverlap="true"
+app:cardUseCompatPadding="true"
+app:cardCornerRadius="10dp">
+
+<LinearLayout
+    android:id="@+id/item2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+    <CheckBox
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"/>
+
+    <!-- Thumbnail for Item -->
+    <ImageView
+        android:id="@+id/itemThumbnail"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/imgdescrip" />
+
+
+    <!-- Item Description -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical">
+
+        <!-- Item Name -->
+
+        <TextView
+            android:id="@+id/txtequipmentname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtproductcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+
+
+            <TextView
+                android:id="@+id/txtlocation"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text=""
+                android:textSize="14sp"
+                android:paddingStart="5dp" />
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

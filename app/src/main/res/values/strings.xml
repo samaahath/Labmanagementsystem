@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">LMS</string>
+    <string name="title_Account">Account</string>
+    <string name="title_Equipments">Equipments</string>
+    <string name="title_Chemicals">Chemicals</string>
+    <string name="imgdescrip">imagedescription</string>
+    <string name="nointernet">No internet connection, click to try again.</string>
+    <string name="signin">SIGN IN</string>
+    <string name="loginmail">Username</string>
+    <string name="loginpass">Password</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="signed_out">Signed out</string>
+    <string name="title_text">Google Sign-In\nQuickstart</string>
+    <string name="desc_google_icon">Google Logo</string>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
