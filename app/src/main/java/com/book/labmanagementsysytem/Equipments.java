@@ -31,6 +31,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -99,6 +100,11 @@ public class Equipments extends Fragment {
                 return;
             }
 
+            for (DocumentChange dc : value.getDocumentChanges()) {
+                if (dc.getType().equals("added")) {
+
+                }
+            }
 
             for (QueryDocumentSnapshot document : value) {
                 itemArrayList.add(new equipmentlistitems(document.getId(), document.getString("Name"),document.getString("Code"),document.getString("Location"),document.getString("Img")));
