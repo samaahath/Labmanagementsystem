@@ -70,8 +70,6 @@ public class Addequipment extends AppCompatActivity {
         lvparent = findViewById(R.id.lvparent);
         edtProductcode = findViewById(R.id.edtProductCode);
         edtProductName = findViewById(R.id.edtProductName);
-        edtShippingcost = findViewById(R.id.edtShippingCost);
-        edtCost = findViewById(R.id.edtCost);
         edtPrice = findViewById(R.id.edtPrice);
         edtQuantity = findViewById(R.id.edtQuantity);
         edtMinquantity = findViewById(R.id.edtMinQuantity);

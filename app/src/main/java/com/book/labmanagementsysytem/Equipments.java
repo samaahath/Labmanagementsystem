@@ -56,7 +56,7 @@ public class Equipments extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_equipments, container, false);
-        if(getActivity()!=null) getActivity().setTitle("Equipments");
+
         spinnerlayout = v.findViewById(R.id.layoutspinner);
         spinnerlayout.setVisibility(View.GONE);
         edtKeyword = (EditText) v.findViewById(R.id.edtKeyword);

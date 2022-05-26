@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
 
                 case R.id.navigation_equipments:
-                    DisplayPage("fragment_equipments");
+                    DisplayPage("Equipments");
                     return true;
                 case R.id.navigation_chemicals:
-                    DisplayPage("fragment_chemicals");
+                    DisplayPage("Chemicals");
                     return true;
                 case R.id.navigation_account:
-                    DisplayPage("fragment_account");
+                    DisplayPage("Account");
                     return true;
             }
             return false;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Lab Management");
         mAuth = FirebaseAuth.getInstance();
         loginUserAccount();
-        DisplayPage("fragment_equipments");
+        DisplayPage("Equipments");
     }
 
     private void loginUserAccount() {
@@ -94,17 +94,17 @@ public class MainActivity extends AppCompatActivity {
         try {
             switch (page) {
 
-                case "fragment_equipments":
+                case "Equipments":
                     Bundle bundle = new Bundle();
                     fragment = new Equipments();
                     fragment.setArguments(bundle);
                     break;
-                case "fragment_chemicals":
+                case "Chemicals":
                     bundle = new Bundle();
                     fragment = new Chemicals();
                     fragment.setArguments(bundle);
                     break;
-                case "fragment_account":
+                case "Account":
                     bundle = new Bundle();
                     bundle.putString("name", customername);
                     bundle.putString("email", customeremail);

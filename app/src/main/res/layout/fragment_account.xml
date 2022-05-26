@@ -6,10 +6,7 @@
     android:gravity="end"
     android:background="#edf3f4">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:id="@+id/parentlayout"
-        android:layout_height="match_parent">
+
 
 
         <LinearLayout
@@ -36,7 +33,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Name"
                     android:textStyle="bold"
                     android:textColor="#2B3D4D"
                     android:layout_marginStart="15dp"
@@ -47,15 +43,45 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Email"
                     android:layout_marginStart="15dp"
                     android:textColor="#2B3D4D"
                     android:textSize="13sp" />
 
             </LinearLayout>
 
+
             <RelativeLayout
-                android:id="@+id/rlytprofilename"
+                android:id="@+id/rlytsignout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/Imageviewsignout"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logout"
+                    android:contentDescription="@string/sign_out" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/Imageviewsignout"
+                    android:text="@string/sign_out"
+                    android:textColor="#2B3D4D"
+                    android:textSize="13sp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rlytaddlab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -64,119 +90,54 @@
                 android:padding="10dp">
 
                 <ImageView
-                    android:id="@+id/addressImageView"
+                    android:id="@+id/Imageviewlab"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
+                    android:src="@drawable/addproduct"
+                    android:contentDescription="@string/AddLab" />
 
                 <TextView
-                    android:id="@+id/txtprofilename"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:layout_marginTop="3dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/addressImageView"
-                    android:text="Products"
-                    android:textColor="#2B3D4D"
-                    android:textSize="13sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rlytsignout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/Imageviewphoneno"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentTop="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/Imageviewphoneno"
-                    android:text="Sign Out"
-                    android:textColor="#2B3D4D"
-                    android:textSize="13sp" />
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/rlytaddcategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="#ffffff"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/Imageviewshippingassdress"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentTop="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
-
-                <TextView
-                    android:id="@+id/txtaddcategory"
+                    android:id="@+id/txtaddlab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="2dp"
                     android:textStyle="bold"
-                    android:layout_toRightOf="@id/Imageviewshippingassdress"
-                    android:text="Add Category"
+                    android:layout_toEndOf="@id/Imageviewlab"
+                    android:text="@string/AddLab"
                     android:textColor="#2B3D4D"
                     android:textSize="13sp" />
 
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/rlytaddunit"
+                android:id="@+id/rlytaddstatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
                 <ImageView
-                    android:id="@+id/Imageviewchangepass"
+                    android:id="@+id/Imageviewstatus"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
+                    android:src="@drawable/addproduct"
+                    android:contentDescription="@string/AddStatus" />
 
                 <TextView
-                    android:id="@+id/txtaddunit"
+                    android:id="@+id/txtaddstatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/Imageviewchangepass"
-                    android:text="Add unit"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/Imageviewstatus"
+                    android:text="@string/AddStatus"
                     android:textStyle="bold"
                     android:textColor="#2B3D4D"
                     android:textSize="13sp" />
@@ -184,31 +145,31 @@
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/rlytproductsbycat"
+                android:id="@+id/rlytaddlocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
                 <ImageView
-                    android:id="@+id/Imageviewbycat"
+                    android:id="@+id/Imageviewlocation"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
+                    android:src="@drawable/addproduct"
+                    android:contentDescription="@string/AddLocation" />
 
                 <TextView
-                    android:id="@+id/txtbycat"
+                    android:id="@+id/txtbyaddlocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/Imageviewbycat"
-                    android:text="Products by Category"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/Imageviewlocation"
+                    android:text="@string/AddLocation"
                     android:textStyle="bold"
                     android:textColor="#2B3D4D"
                     android:textSize="13sp" />
@@ -216,31 +177,31 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/rlytaddmanufacturer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
                 <ImageView
-                    android:id="@+id/Imageviewlogout"
+                    android:id="@+id/Imageviewmanufacturer"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
+                    android:src="@drawable/addproduct"
+                    android:contentDescription="@string/AddManu" />
 
                 <TextView
-                    android:id="@+id/txtlogout"
+                    android:id="@+id/txtaddmanufacturer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/Imageviewlogout"
-                    android:text="Sign Out"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/Imageviewmanufacturer"
+                    android:text="@string/AddManu"
                     android:textStyle="bold"
                     android:textColor="#2B3D4D"
                     android:textSize="13sp" />
@@ -248,11 +209,10 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/rlytabout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -263,59 +223,25 @@
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
+                    android:src="@drawable/about"
+                    android:contentDescription="@string/About" />
 
                 <TextView
                     android:id="@+id/txtabout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/Imageviewabout"
-                    android:text="Change Password"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/Imageviewabout"
+                    android:text="@string/About"
                     android:textStyle="bold"
                     android:textColor="#2B3D4D"
                     android:textSize="13sp" />
 
 
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:background="#ffffff"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="0dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/Imageviewhelp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentTop="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/account" />
-
-                <TextView
-                    android:id="@+id/txthelp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="20dp"
-                    android:textStyle="bold"
-                    android:layout_toRightOf="@id/Imageviewhelp"
-                    android:text="Help"
-                    android:clickable="true"
-                    android:textColor="#2B3D4D"
-                    android:textSize="13sp" />
-
-
-            </RelativeLayout>
-
-
 
         </LinearLayout>
-    </RelativeLayout>
+
 
 </RelativeLayout>

@@ -32,6 +32,7 @@ public class Account extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
          View v = inflater.inflate(R.layout.fragment_account, container, false);
+
          signout = v.findViewById(R.id.rlytsignout);
          txtName = v.findViewById(R.id.txtName);
          txtName.setText(getArguments().getString("name"));

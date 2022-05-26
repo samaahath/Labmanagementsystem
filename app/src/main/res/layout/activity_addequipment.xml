@@ -4,6 +4,7 @@
     android:id="@+id/outerparentlayout"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
+    android:background="#edf3f4"
     tools:context=".Addequipment" >
 
 
@@ -80,24 +81,15 @@
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:textSize="16sp"
-                    android:text=""
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtcategory"
-                android:hint="Select a Category"
-                android:padding="12dp"
-                android:gravity="center_vertical"
-                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:background="@android:drawable/editbox_background"
-                />
+
 
             <Spinner
-                android:id="@+id/spinnergststatus"
+                android:id="@+id/spinnerlab"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:drawableTint="@color/black"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <EditText
@@ -107,20 +99,34 @@
                 android:textSize="16sp"
                 android:focusable="false"
                 android:hint="Enter Date" />
+            <EditText
+                android:id="@+id/EdtMfgDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:focusable="false"
+                android:hint="Enter Date" />
+            <EditText
+                android:id="@+id/EdtReceivedDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:focusable="false"
+                android:hint="Enter Date" />
             <Spinner
-                android:id="@+id/spinnerunit"
+                android:id="@+id/spinnerstatus"
                 android:layout_width="fill_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <Spinner
-                android:id="@+id/spinneronlinestatus"
+                android:id="@+id/spinnermanufacturer"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <Spinner
-                android:id="@+id/spinnershippingstatus"
+                android:id="@+id/spinnerlocation"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_height="wrap_content"
@@ -130,11 +136,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtShippingCost"
+                    android:id="@+id/edtQty"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Shipping Cost"
+                    android:hint="Quantity"
                     android:inputType="numberDecimal"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
@@ -142,23 +148,7 @@
                     android:text=""
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edtCost"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableTint="@color/black"
-                    android:hint="Cost"
-                    android:inputType="numberDecimal"
-                    android:fontFamily="sans-serif"
-                    android:singleLine="true"
-                    android:textSize="16sp"
-                    android:text=""
-                    android:importantForAutofill="no" />
-            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -215,42 +205,13 @@
                 android:inputType="textMultiLine"
                 android:lines="8"
                 android:minLines="6"
-                android:hint="Description"
+                android:hint="@string/Equipmentdescription"
                 android:gravity="top|start"
                 android:maxLines="10"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:scrollbars="vertical"/>
-
-            <Spinner
-                android:id="@+id/spinnercountry"
-                android:layout_width="fill_parent"
-                android:autofillHints="Country"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"/>
-
-
-            <Spinner
-                android:id="@+id/spinneratoll"
-                android:layout_width="fill_parent"
-                android:autofillHints="Atoll"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"/>
-
-
-            <Spinner
-                android:id="@+id/spinnerisland"
-                android:layout_width="fill_parent"
-                android:autofillHints="Island"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"/>
-
-
-
-        </LinearLayout>
+             </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <Button
         android:id="@+id/btnsave"
