@@ -100,12 +100,7 @@ public class Equipments extends Fragment {
                 return;
             }
 
-            for (DocumentChange dc : value.getDocumentChanges()) {
-                if (dc.getType().equals("added")) {
-
-                }
-            }
-
+            itemArrayList.clear();
             for (QueryDocumentSnapshot document : value) {
                 itemArrayList.add(new equipmentlistitems(document.getId(), document.getString("Name"),document.getString("Code"),document.getString("Location"),document.getString("Img")));
 
