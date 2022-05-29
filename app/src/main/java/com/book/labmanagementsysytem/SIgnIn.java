@@ -1,39 +1,33 @@
 package com.book.labmanagementsysytem;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class SIgnIn extends AppCompatActivity implements
-        View.OnClickListener{
+public class SIgnIn extends AppCompatActivity {
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
 
     private GoogleSignInClient mGoogleSignInClient;
     private TextView mStatusTextView;
-
+    ActivityResultLauncher<Intent> someActivityResultLauncher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +36,6 @@ public class SIgnIn extends AppCompatActivity implements
         // Views
         mStatusTextView = findViewById(R.id.status);
 
-        // Button listeners
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // [START configure_signin]
         // Configure sign-in to request the user's ID, email address, and basic
@@ -66,6 +56,26 @@ public class SIgnIn extends AppCompatActivity implements
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
         // [END customize_button]
+        signInButton.setOnClickListener(v -> signIn());
+
+        someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+
+                            try {
+                                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                                handleSignInResult(task);
+
+                            } catch (Exception e) {
+                                // Log the exception
+                                e.printStackTrace();
+                            }
+
+                    }
+                });
     }
     @Override
     public void onStart() {
@@ -91,6 +101,8 @@ public class SIgnIn extends AppCompatActivity implements
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
+
+
     }
     // [END onActivityResult]
 
@@ -98,13 +110,25 @@ public class SIgnIn extends AppCompatActivity implements
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
+            String email = account.getEmail();
+            assert email != null;
+            String[] split = email.split("@");
+            String domain = split[1]; //This Will Give You The Domain After '@'
+            if(domain.equals("ihavandhooschool.edu.mv"))
+            {
+                Intent intent=new Intent(this,MainActivity.class);
+                intent.putExtra("name",account.getDisplayName());
+                intent.putExtra("email",email);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(SIgnIn.this, "Not Authorised", Toast.LENGTH_LONG).show();
+                mGoogleSignInClient.signOut();
+            }
             // Signed in successfully, show authenticated UI.
             //updateUI(account);
-            Intent intent=new Intent(this,MainActivity.class);
-            intent.putExtra("name",account.getDisplayName());
-            intent.putExtra("email",account.getEmail());
-            startActivity(intent);
+
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -118,68 +142,39 @@ public class SIgnIn extends AppCompatActivity implements
     // [START signIn]
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        someActivityResultLauncher.launch(signInIntent);
+       // startActivityForResult(signInIntent, RC_SIGN_IN);
     }
     // [END signIn]
 
-    // [START signOut]
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // [START_EXCLUDE]
-                        updateUI(null);
-                        // [END_EXCLUDE]
-                    }
-                });
-    }
-    // [END signOut]
 
-    // [START revokeAccess]
-    private void revokeAccess() {
-        mGoogleSignInClient.revokeAccess()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // [START_EXCLUDE]
-                        updateUI(null);
-                        // [END_EXCLUDE]
-                    }
-                });
-    }
-    // [END revokeAccess]
 
     private void updateUI(@Nullable GoogleSignInAccount account) {
         if (account != null) {
-            Intent intent=new Intent(this,MainActivity.class);
-            intent.putExtra("name",account.getDisplayName());
-            intent.putExtra("email",account.getEmail());
-            startActivity(intent);
-          //  mStatusTextView.setText(getString(R.string.signed_in_fmt, account.getDisplayName()));
 
-            //findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-           // findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+            String email = account.getEmail();
+            assert email != null;
+            String[] split = email.split("@");
+            String domain = split[1]; //This Will Give You The Domain After '@'
+            if(domain.equals("ihavandhooschool.edu.mv"))
+            {
+                Intent intent=new Intent(this,MainActivity.class);
+                intent.putExtra("name",account.getDisplayName());
+                intent.putExtra("email",email);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(SIgnIn.this, "Not Authorised", Toast.LENGTH_LONG).show();
+                mGoogleSignInClient.signOut();
+            }
+
         } else {
-            mStatusTextView.setText(R.string.signed_out);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                signIn();
-                break;
-            case R.id.sign_out_button:
-                signOut();
-                break;
-            case R.id.disconnect_button:
-                revokeAccess();
-                break;
-        }
-    }
+
 }

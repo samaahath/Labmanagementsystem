@@ -53,6 +53,7 @@ public class Account extends Fragment {
                                  public void onComplete(@NonNull Task<Void> task) {
                                      Intent i = new Intent(requireActivity(), SIgnIn.class);
                                      startActivity(i);
+                                     requireActivity().finishAffinity();
                                  }
                              });
 

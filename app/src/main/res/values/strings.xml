@@ -10,8 +10,8 @@
     <string name="loginpass">Password</string>
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
-    <string name="signed_out">Signed out</string>
-    <string name="title_text">Google Sign-In\nQuickstart</string>
+    <string name="schoolname">Ihavandhoo School</string>
+    <string name="title_text">Lab Management System</string>
     <string name="desc_google_icon">Google Logo</string>
     <string name="signed_in_fmt">Signed in as: %s</string>
 

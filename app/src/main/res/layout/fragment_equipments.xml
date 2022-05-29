@@ -76,6 +76,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="15dp"
                 android:text="All"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
                     <ListView
