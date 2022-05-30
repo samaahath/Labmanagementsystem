@@ -84,17 +84,19 @@
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <Spinner
                 android:id="@+id/spinnerlab"
                 android:layout_width="match_parent"
-                style="@style/Widget.AppCompat.Spinner.DropDown"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:background="@drawable/spinner_bg"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <EditText
                 android:id="@+id/EdtExpiryDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
                 android:textSize="16sp"
                 android:focusable="false"
                 android:hint="Enter Date" />
@@ -102,6 +104,8 @@
                 android:id="@+id/EdtMfgDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
                 android:textSize="16sp"
                 android:focusable="false"
                 android:hint="Enter Date" />
@@ -109,25 +113,24 @@
                 android:id="@+id/EdtReceivedDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
                 android:textSize="16sp"
                 android:focusable="false"
                 android:hint="Enter Date" />
-            <Spinner
-                android:id="@+id/spinnerstatus"
-                android:layout_width="fill_parent"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"/>
+
             <Spinner
                 android:id="@+id/spinnermanufacturer"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:background="@drawable/spinner_bg"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <Spinner
                 android:id="@+id/spinnerlocation"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:background="@drawable/spinner_bg"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <com.google.android.material.textfield.TextInputLayout
