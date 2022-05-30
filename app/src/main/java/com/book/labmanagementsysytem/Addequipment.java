@@ -129,7 +129,7 @@ public class Addequipment extends AppCompatActivity {
         data.put("Name", edtProductName.getText().toString().trim());
         data.put("Quantity", edtProductName.getText().toString().trim());
         data.put("Received Date", edtProductName.getText().toString().trim());
-        data.put("Status", edtProductName.getText().toString().trim());
+        data.put("AvailableQuantity", edtProductName.getText().toString().trim());
         //get Database
         db = FirebaseFirestore.getInstance();
 

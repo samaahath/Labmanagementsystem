@@ -2,6 +2,7 @@ package com.book.labmanagementsysytem;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -57,7 +58,7 @@ public class SIgnIn extends AppCompatActivity {
         signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
         // [END customize_button]
         signInButton.setOnClickListener(v -> signIn());
-
+setGooglePlusButtonText(signInButton,"Sign in with Google");
         someActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -105,7 +106,20 @@ public class SIgnIn extends AppCompatActivity {
 
     }
     // [END onActivityResult]
+    protected void setGooglePlusButtonText(SignInButton signInButton,
+                                           String buttonText) {
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
 
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setTextSize(15);
+                tv.setTypeface(null, Typeface.NORMAL);
+                tv.setText(buttonText);
+                return;
+            }
+        }
+    }
     // [START handleSignInResult]
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
