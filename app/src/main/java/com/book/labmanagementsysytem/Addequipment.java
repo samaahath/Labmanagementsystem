@@ -11,11 +11,13 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,15 +45,8 @@ public class Addequipment extends AppCompatActivity {
     Map<String, Object> data;
     Button btnsave;
     LinearLayout lvparent;
-    EditText edtProductcode;
-    EditText edtProductName;
-    EditText edtShippingcost;
-    EditText edtCost;
-    EditText edtPrice;
-    EditText edtQuantity;
-    EditText edtMinquantity;
-    EditText edtDescription;
-    EditText ExpirydateText;
+    EditText edtProductcode, edtProductName,edtPrice,edtQuantity,edtMinquantity,edtDescription,ExpirydateText;
+    Spinner spinnerlab,spinnermanufacturer,spinnerlocation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +72,15 @@ public class Addequipment extends AppCompatActivity {
         ExpirydateText = findViewById(R.id.EdtExpiryDate);
         ExpirydateText.setInputType(InputType.TYPE_NULL);
         ExpirydateText.setText(new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new java.util.Date()));
+
+
+        spinnerlab = findViewById(R.id.spinnerlab);
+        String[] labarray = new String[]{
+                "Select a lab", "Physics Lab", "Chemistry Lab"
+        };
+        ArrayAdapter<String> onlinestatusadapter = new ArrayAdapter<String>(Addequipment.this, R.layout.spinner_item, labarray);
+        onlinestatusadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerlab.setAdapter(onlinestatusadapter);
 
         btnsave.setOnClickListener(new View.OnClickListener() {
 

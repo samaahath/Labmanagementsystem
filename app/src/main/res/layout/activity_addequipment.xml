@@ -4,7 +4,6 @@
     android:id="@+id/outerparentlayout"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="#edf3f4"
     tools:context=".Addequipment" >
 
 
@@ -40,7 +39,7 @@
                 android:background="@color/purple_200"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:text="Browse"/>
+                android:text="@string/browse"/>
 
             <ImageView
                 android:id="@+id/productThumbnail"
@@ -48,7 +47,8 @@
                 android:layout_height="120dp"
                 android:src="@drawable/noimage"
                 android:padding="10dp"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:contentDescription="@string/itemimage" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -58,8 +58,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Product Code"
-                    android:inputType="text"
+                    android:hint="@string/product_code"
+                    android:inputType="textAutoComplete"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:textSize="16sp"
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Product Name"
+                    android:hint="@string/product_name"
                     android:inputType="text"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
@@ -87,50 +87,62 @@
             <Spinner
                 android:id="@+id/spinnerlab"
                 android:layout_width="match_parent"
+                android:drawableTint="@color/black"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:background="@drawable/spinner_bg"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/EdtExpiryDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
-                android:backgroundTint="@color/black"
+                android:drawableTint="@color/black"
                 android:textSize="16sp"
                 android:focusable="false"
-                android:hint="Enter Date" />
+                android:hint="@string/expiry_date"
+                android:importantForAutofill="no"
+                android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/EdtMfgDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
-                android:backgroundTint="@color/black"
                 android:textSize="16sp"
                 android:focusable="false"
-                android:hint="Enter Date" />
+                android:hint="@string/mfg_date"
+                android:importantForAutofill="no"
+                android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/EdtReceivedDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
-                android:backgroundTint="@color/black"
                 android:textSize="16sp"
                 android:focusable="false"
-                android:hint="Enter Date" />
+                android:hint="@string/received_date"
+                android:importantForAutofill="no"
+                android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/spinnermanufacturer"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:background="@drawable/spinner_bg"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <Spinner
                 android:id="@+id/spinnerlocation"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:background="@drawable/spinner_bg"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"/>
             <com.google.android.material.textfield.TextInputLayout
@@ -142,12 +154,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Quantity"
+                    android:hint="@string/quantity"
                     android:inputType="numberDecimal"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:textSize="16sp"
-                    android:text=""
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,12 +171,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Price"
+                    android:hint="@string/price"
                     android:inputType="numberDecimal"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:textSize="16sp"
-                    android:text=""
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -177,12 +187,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Quantity"
+                    android:hint="@string/quantity"
                     android:inputType="numberDecimal"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:textSize="16sp"
-                    android:text=""
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -194,27 +203,29 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableTint="@color/black"
-                    android:hint="Min Quantity"
+                    android:hint="@string/min_quantity"
                     android:inputType="numberDecimal"
                     android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:textSize="16sp"
-                    android:text=""
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/edtDescription"
                 android:inputType="textMultiLine"
                 android:lines="8"
-                android:backgroundTint="@color/black"
-                android:background="@color/black"
                 android:minLines="6"
                 android:hint="@string/Equipmentdescription"
                 android:gravity="top|start"
                 android:maxLines="10"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:scrollbars="vertical"/>
+                android:scrollbars="vertical"
+                android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
              </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <Button
@@ -225,7 +236,7 @@
         android:background="@color/black"
         android:layout_alignParentBottom="true"
         android:paddingBottom="5dp"
-        android:text="Save" />
+        android:text="@string/save" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
